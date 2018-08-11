@@ -1,0 +1,7 @@
+*
+
+!*/
+!*.clj
+
+project.clj
+*_test.clj
