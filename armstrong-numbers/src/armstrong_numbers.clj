@@ -1,10 +1,7 @@
 (ns armstrong-numbers)
 
 (defn expt [base exponent]
-  (loop [exponent exponent
-         result-so-far 1]
-    (if (= exponent 0) result-so-far
-      (recur (- exponent 1) (* base result-so-far)))))
+  (apply * (repeat exponent base)))
 
 (defn digits [num]
   (loop [num num
