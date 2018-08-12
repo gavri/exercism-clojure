@@ -1,18 +1,18 @@
 (ns armstrong-numbers)
 
 (defn expt [base exponent]
-  (defn expt-recur [base exponent result-so-far]
+  (loop [exponent exponent
+         result-so-far 1]
     (if (= exponent 0) result-so-far
-      (recur base (- exponent 1) (* base result-so-far))))
-  (expt-recur base exponent 1))
+      (recur (- exponent 1) (* base result-so-far)))))
 
 (defn digits [num]
-  (defn digits-recur [num result-so-far]
+  (loop [num num
+         result-so-far '()]
     (cond (= num 0) result-so-far
           :else (let [r (rem num 10)
                       q (quot num 10)]
-                  (recur q (cons r result-so-far)))))
-  (digits-recur num '()))
+                  (recur q (cons r result-so-far))))))
 
 (defn armstrong? [num]
   (let [ds (digits num)
